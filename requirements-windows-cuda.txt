@@ -1,0 +1,5 @@
+# Windows: CUDA runtime DLL для CTranslate2 (ставится в setup.bat отдельно).
+# Эти пакеты кладут cuBLAS/cuDNN в .venv\Lib\site-packages\nvidia\...\bin,
+# а transcribe.py сам добавляет их в PATH при старте.
+nvidia-cublas-cu12
+nvidia-cudnn-cu12

@@ -1,0 +1,9 @@
+# Резервный движок (если CTranslate2 не заведётся на Blackwell).
+# Ставить ТОЛЬКО по желанию: python setup.sh --with-transformers
+#
+# torch под Python 3.14 берётся из индекса cu128 (там есть cp314 + sm_120):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+torch>=2.8
+transformers>=4.44
+accelerate>=1.0
+soundfile>=0.12

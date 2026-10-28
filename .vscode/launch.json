@@ -1,0 +1,55 @@
+{
+  "version": "0.2.0",
+  "inputs": [
+    {
+      "id": "inputPath",
+      "type": "promptString",
+      "description": "Путь к видео/аудио или ссылка (Rutube/YouTube)",
+      "default": "video.mp4"
+    },
+    {
+      "id": "lang",
+      "type": "promptString",
+      "description": "Язык распознавания (ru / en / ...)",
+      "default": "ru"
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Transcribe (faster-whisper)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/transcribe.py",
+      "args": [
+        "${input:inputPath}",
+        "-o",
+        "${workspaceFolder}/transcript.txt",
+        "--srt",
+        "${workspaceFolder}/transcript.srt",
+        "--lang",
+        "${input:lang}"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true
+    },
+    {
+      "name": "Transcribe (transformers fallback)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/transcribe.py",
+      "args": [
+        "${input:inputPath}",
+        "-o",
+        "${workspaceFolder}/transcript.txt",
+        "--lang",
+        "${input:lang}",
+        "--engine",
+        "transformers"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup (.venv + dependencies)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\setup.bat",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Transcribe (ask path)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\run.bat",
+      "args": ["${input:inputPath}", "-o", "transcript.txt"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "inputPath",
+      "type": "promptString",
+      "description": "Путь к видео/аудио или ссылка",
+      "default": "video.mp4"
+    }
+  ]
+}

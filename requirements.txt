@@ -1,0 +1,7 @@
+# Основной (быстрый) движок для RTX 5070.
+# faster-whisper использует CTranslate2 -> для CUDA нужны системные cuBLAS/cuDNN:
+#   sudo pacman -S cuda cudnn
+faster-whisper>=1.2.1
+ctranslate2>=4.6.0
+yt-dlp>=2024.10.0
+tqdm>=4.66
